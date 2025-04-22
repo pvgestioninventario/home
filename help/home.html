@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayuda - Punto de Venta</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f3f5;
+    }
+
+    header {
+      background-color: #0d6efd;
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+      color: #333;
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    .nav-link i {
+      margin-right: 0.5rem;
+    }
+
+    #main-content {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .sidebar {
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        border-right: 1px solid #dee2e6;
+        padding: 2rem 1rem;
+      }
+    }
+
+    .offcanvas-start {
+      width: 280px;
+    }
+
+    .submenu {
+      padding-left: 1.5rem;
+      display: none; /* Ocultar por defecto */
+    }
+
+    .submenu.show {
+      display: block; /* Mostrar cuando se haga clic en el módulo principal */
+    }
+
+    .submenu .nav-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+      <button class="btn btn-light d-md-none me-3" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="h5 m-0"><i class="fas fa-store"></i> Centro de Ayuda - Punto de Venta</h1>
+    </div>
+    <span class="small d-none d-md-block">Soporte Técnico | pvgestioninventario@gmail.com</span>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-4 col-lg-3 sidebar d-none d-md-block">
+        <h4>Módulos</h4>
+        <input type="text" id="searchBar" class="form-control mb-3" placeholder="Buscar módulo..." />
+        <ul id="menuItems" class="nav flex-column">
+          <li class="nav-item"><a class="nav-link active" href="#" data-target="inicio" data-module="inicio"><i class="fa fa-home"></i> Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-module="dashboard"><i class="fa fa-chart-line"></i> Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-module="ventas"><i class="fa fa-cash-register"></i> Ventas</a></li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-module="facturacion"><i class="fa fa-file-invoice"></i> Facturación</a>
+            <ul class="nav flex-column submenu" id="facturacionSubmenu">
+                <li class="nav-item"><a class="nav-link" href="#" data-module="facturacion_efectivo">• Facturación en efectivo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-module="facturacion_credito">• Facturación al crédito</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">• Pago por transferencia</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">• Facturación al crédito</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">• Aplicar descuentos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">• Anular Factura</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">• Clonar Factura</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-module="facturas_generadas">Historial de Facturas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" >Notas de Crédito</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-module="inventarios"><i class="fa fa-boxes"></i> Inventarios</a>
+            <ul class="nav flex-column submenu" id="inventariosSubmenu">
+              <li class="nav-item"><a class="nav-link" href="#" data-module="productos">Productos</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-module="movimientos">Movimientos</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#" data-module="clientes"><i class="fa fa-users"></i> Clientes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-module="reportes"><i class="fa fa-chart-pie"></i> Reportes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-module="configuracion"><i class="fa fa-cogs"></i> Configuración</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-module="soporte"><i class="fa fa-headset"></i> Soporte</a></li>
+        </ul>
+      </nav>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Módulos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <input type="text" id="searchBarMobile" class="form-control mb-3" placeholder="Buscar módulo..." />
+          <ul id="menuItemsMobile" class="nav flex-column">
+            <li class="nav-item"><a class="nav-link active" href="#" data-target="inicio" data-module="inicio"><i class="fa fa-home"></i> Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-module="dashboard"><i class="fa fa-chart-line"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-module="ventas"><i class="fa fa-cash-register"></i> Ventas</a></li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-module="facturacion"><i class="fa fa-file-invoice"></i> Facturación</a>
+              <ul class="nav flex-column submenu" id="facturacionSubmenuMobile">
+                <li class="nav-item"><a class="nav-link" href="#" data-module="facturas_generadas">Facturas Generadas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-module="facturacion_efectivo">Notas de Crédito</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-module="inventarios"><i class="fa fa-boxes"></i> Inventarios</a>
+              <ul class="nav flex-column submenu" id="inventariosSubmenuMobile">
+                <li class="nav-item"><a class="nav-link" href="#" data-module="productos">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-module="movimientos">Movimientos</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="#" data-module="clientes"><i class="fa fa-users"></i> Clientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-module="reportes"><i class="fa fa-chart-pie"></i> Reportes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-module="configuracion"><i class="fa fa-cogs"></i> Configuración</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-module="soporte"><i class="fa fa-headset"></i> Soporte</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <main class="col-md-8 col-lg-9 p-4">
+        <div id="main-content">
+          <h2>Bienvenido al Centro de Ayuda de Punto de Venta</h2>
+          <p>En este documento se describen las funcionalidades principales del sistema y cómo utilizarlas de manera eficiente.</p>
+  <p>El sistema permite realizar ventas tanto de contado como a crédito, lo que lo hace ideal para negocios como tiendas de ropa, electrodomésticos, tecnología, farmacias y abarrotes.</p> 
+  <p><img src="images/iniciopv.png" class="img-fluid rounded" /></p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const contenidos = {
+        inicio: `<h2>Bienvenido al Centro de Ayuda de Punto de Venta</h2>
+        <p>En este documento se describen las funcionalidades principales del sistema y cómo utilizarlas de manera eficiente.</p>
+<p>El sistema permite realizar ventas tanto de contado como a crédito, lo que lo hace ideal para negocios como tiendas de ropa, electrodomésticos, tecnología, farmacias y abarrotes.</p>
+<p><img src="images/iniciopv.png" class="img-fluid rounded" /></p>
+`,
+        dashboard: `<h2>Dashboard</h2><p>Consulta estadísticas, ventas y actividad del sistema en tiempo real.
+        Este módulo proporciona una visión general del estado del negocio, mostrando indicadores clave como:</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Cantidad de Productos.</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Productos Vendidos Hoy.</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Productos Vencidos.</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Ganancias del Día.</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Cantidad de Clientes.</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Cantidad de Proveedores.</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Gráficos de Ventas y Compras.</p>
+<p><i class="fas fa-check-circle text-primary me-2"></i> Top 25 Productos más vendidos.</p>
+
+        </p>`,
+        ventas: `<h2>Paso a Paso: Ventas</h2><ol><li>Abre el módulo de ventas desde el menú.</li><li>Selecciona el producto y cantidad deseada.</li><li>Haz clic en "Generar Factura".</li></ol><h4>Demostración:</h4><img src="ruta/a/tu_gif.gif" alt="Demostración de ventas" class="img-fluid rounded" />`,
+        facturacion: `<h2>Facturación</h2><p>Accede a opciones como facturas generadas y notas de crédito.</p>`,
+        facturas_generadas: `<h2>Facturas Generadas</h2><ol><li>Visualiza todas las facturas emitidas.</li><li>Filtra por fecha o cliente.</li></ol>`,
+        facturacion_efectivo: `<h2>Facturación en Efectivo</h2><p>
+          <p>Este proceso te permite registrar una venta en efectivo de forma rápida y sencilla. <br>Pasos a seguir:</p>
+<p>1.	En el menú lateral izquierdo selecciona la opción <strong>"Nueva Factura"</strong>.</p>
+<p>2.	Utiliza la búsqueda por código de barra, o bien ingresando el nombre del producto y asignar el cliente (opcional).</p>
+<p>3.	Selecciona la opción <strong>"Cobrar Factura"</strong>.</p>
+<p>4.	Elige el método de pago e ingresa el monto recibido.</p>
+<p>5.	Hace clic en la opción <strong>"Cobrar"</strong>.</p>
+</li></ol><h4>Demostración:</h4><img src="images/nuevafacturaEfectivo.gif" class="img-fluid rounded" />
+          </p>`,
+        facturacion_credito: `<h2>Facturación al Crédito</h2><p>
+          <p>Este proceso permite registrar una venta con pago diferido (crédito) de manera ágil.<br>Pasos a seguir:</p>
+<p>1.	En el menú lateral izquierdo selecciona la opción <strong>"Nueva Factura"</strong>.</p>
+<p>2.	Buscá el producto utilizando el código de barras o escribiendo el nombre del producto.</p>
+<p>3.	Asigná un cliente y selecciona la opción <strong>"Cobrar Factura"</strong>.</p>
+<p>4.	Elige el método de pago <strong>"CRÉDITO"</strong>.</p>
+<p>5.	Has clic en la opción <strong>"Cobrar"</strong>. La factura quedará registrada como pendiente de pago.</p>
+</li></ol><h4>Demostración:</h4><img src="images/nuevafacturaCredito.gif" class="img-fluid rounded" />
+          </p>`,
+        inventarios: `<h2>Inventarios</h2><p>Consulta productos y movimientos.</p>`,
+        productos: `<h2>Productos</h2><p>Lista y edita los productos registrados.</p>`,
+        movimientos: `<h2>Movimientos de Inventario</h2><p>Visualiza entradas y salidas de mercancía.</p>`,
+        clientes: `<h2>Clientes</h2><ol><li>Abre el módulo de clientes.</li><li>Agrega o edita un cliente.</li><li>Asigna condiciones de pago y seguimiento.</li></ol>`,
+        reportes: `<h2>Reportes</h2><p>Genera reportes detallados de ventas, inventario, clientes y más.</p>`,
+        configuracion: `<h2>Configuración del Sistema</h2><p>Ajusta parámetros, usuarios, permisos y preferencias del sistema.</p>`,
+        soporte: `<h2>Soporte Técnico</h2><p>Contáctanos a pvgestioninventario@gmail.com.</p>`
+      };
+
+      function setupMenu(searchInputId, menuId) {
+        const searchBar = document.getElementById(searchInputId);
+        const menuItems = document.getElementById(menuId);
+        const links = menuItems.querySelectorAll('.nav-link');
+
+        searchBar.addEventListener("input", () => {
+          const term = searchBar.value.toLowerCase();
+          const items = menuItems.getElementsByTagName("li");
+          for (let item of items) {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(term) ? "" : "none";
+          }
+        });
+
+        links.forEach(link => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+
+            // Toggle submenus visibility
+            const submenu = link.nextElementSibling;
+            if (submenu && submenu.classList.contains("submenu")) {
+              submenu.classList.toggle("show");
+            }
+
+            const modulo = link.getAttribute("data-module");
+            document.getElementById("main-content").innerHTML = contenidos[modulo] || "<p>Contenido no disponible.</p>";
+
+            const offcanvasElement = bootstrap.Offcanvas.getInstance(document.getElementById('sidebarMenu'));
+            if (offcanvasElement) offcanvasElement.hide();
+          });
+        });
+      }
+
+      setupMenu("searchBar", "menuItems");
+      setupMenu("searchBarMobile", "menuItemsMobile");
+
+      
+    });
+  </script>
+</body>
+</html>
