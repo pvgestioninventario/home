@@ -75,6 +75,15 @@
       font-size: 0.9rem;
     }
   </style>
+
+  <script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Esto hace que el scroll sea suave
+        });
+    }
+</script>
 </head>
 <body>
   <header class="d-flex justify-content-between align-items-center">
@@ -100,30 +109,30 @@
           <li class="nav-item">
             <a class="nav-link" href="#" data-module="facturacion"><i class="fa fa-file-invoice"></i> Facturación</a>
             <ul class="nav flex-column submenu" id="facturacionSubmenu">
-                <li class="nav-item"><a class="nav-link" href="#" data-module="facturacion_efectivo">• Facturación en efectivo</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" data-module="facturacion_credito">• Facturación al crédito</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">• Pago por transferencia</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">• Facturación al crédito</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">• Aplicar descuentos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">• Anular Factura</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">• Clonar Factura</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" data-module="facturas_generadas">Historial de Facturas</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" >Notas de Crédito</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="facturacion_efectivo">• Facturación en efectivo</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="facturacion_credito">• Facturación al crédito</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#">• Pago por transferencia</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#">• Facturación al crédito</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#">• Aplicar descuentos</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#">• Anular Factura</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#">• Clonar Factura</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="facturas_generadas">Historial de Facturas</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" >Notas de Crédito</a></li>
             </ul>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="#" data-module="inventarios"><i class="fa fa-boxes"></i> Inventarios</a>
             <ul class="nav flex-column submenu" id="inventariosSubmenu">
-              <li class="nav-item"><a class="nav-link" href="#" data-module="productos">Productos</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-module="movimientos">Movimientos</a></li>
+              <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="productos">Productos</a></li>
+              <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="movimientos">Movimientos</a></li>
             </ul>
           </li>
 
-          <li class="nav-item"><a class="nav-link" href="#" data-module="clientes"><i class="fa fa-users"></i> Clientes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-module="reportes"><i class="fa fa-chart-pie"></i> Reportes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-module="configuracion"><i class="fa fa-cogs"></i> Configuración</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-module="soporte"><i class="fa fa-headset"></i> Soporte</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="clientes"><i class="fa fa-users"></i> Clientes</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="reportes"><i class="fa fa-chart-pie"></i> Reportes</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="configuracion"><i class="fa fa-cogs"></i> Configuración</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="soporte"><i class="fa fa-headset"></i> Soporte</a></li>
         </ul>
       </nav>
 
@@ -136,29 +145,29 @@
           <input type="text" id="searchBarMobile" class="form-control mb-3" placeholder="Buscar módulo..." />
           <ul id="menuItemsMobile" class="nav flex-column">
             <li class="nav-item"><a class="nav-link active" href="#" data-target="inicio" data-module="inicio"><i class="fa fa-home"></i> Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-module="dashboard"><i class="fa fa-chart-line"></i> Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-module="ventas"><i class="fa fa-cash-register"></i> Ventas</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="dashboard"><i class="fa fa-chart-line"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="ventas"><i class="fa fa-cash-register"></i> Ventas</a></li>
 
             <li class="nav-item">
               <a class="nav-link" href="#" data-module="facturacion"><i class="fa fa-file-invoice"></i> Facturación</a>
               <ul class="nav flex-column submenu" id="facturacionSubmenuMobile">
-                <li class="nav-item"><a class="nav-link" href="#" data-module="facturas_generadas">Facturas Generadas</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" data-module="facturacion_efectivo">Notas de Crédito</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="facturas_generadas">Facturas Generadas</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="facturacion_efectivo">Notas de Crédito</a></li>
               </ul>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="#" data-module="inventarios"><i class="fa fa-boxes"></i> Inventarios</a>
               <ul class="nav flex-column submenu" id="inventariosSubmenuMobile">
-                <li class="nav-item"><a class="nav-link" href="#" data-module="productos">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" data-module="movimientos">Movimientos</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="productos">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="movimientos">Movimientos</a></li>
               </ul>
             </li>
 
-            <li class="nav-item"><a class="nav-link" href="#" data-module="clientes"><i class="fa fa-users"></i> Clientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-module="reportes"><i class="fa fa-chart-pie"></i> Reportes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-module="configuracion"><i class="fa fa-cogs"></i> Configuración</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-module="soporte"><i class="fa fa-headset"></i> Soporte</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="clientes"><i class="fa fa-users"></i> Clientes</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="reportes"><i class="fa fa-chart-pie"></i> Reportes</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="configuracion"><i class="fa fa-cogs"></i> Configuración</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="scrollToTop()" href="#" data-module="soporte"><i class="fa fa-headset"></i> Soporte</a></li>
           </ul>
         </div>
       </div>
